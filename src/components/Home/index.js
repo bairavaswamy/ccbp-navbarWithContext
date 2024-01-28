@@ -1,41 +1,31 @@
-// Write your code here
-import Navbar from '../Navbar'
+import './index.css'
 
 import ThemeContext from '../../context/ThemeContext'
 
-import './index.css'
+import Navbar from '../Navbar'
 
 const Home = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
+
+      const bgContent = isDarkTheme ? 'dark-bg' : 'light-bg'
+
+      const homeImgUrl = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/home-dark-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/home-light-img.png'
+
+      const linkItemsFontColor = isDarkTheme
+        ? 'light-font-color'
+        : 'dark-font-color'
+
       return (
         <>
-          {!isDarkTheme ? (
-            <div className="main-home-container">
-              <Navbar />
-              <div className="home-container-light">
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/home-light-img.png"
-                  className="home-image"
-                  alt="home"
-                />
-                <h1 className="home-heading-light">Home</h1>
-              </div>
-            </div>
-          ) : (
-            <div className="main-home-container">
-              <Navbar />
-              <div className="home-container-dark">
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/home-dark-img.png"
-                  className="home-image"
-                  alt="home"
-                />
-                <h1 className="home-heading-dark">Home</h1>
-              </div>
-            </div>
-          )}
+          <Navbar />
+          <div className={`content-container ${bgContent}`}>
+            <img src={homeImgUrl} alt="home" className="home-img" />
+            <h1 className={`heading ${linkItemsFontColor}`}>Home</h1>
+          </div>
         </>
       )
     }}

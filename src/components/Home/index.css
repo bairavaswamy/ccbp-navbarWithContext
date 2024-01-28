@@ -1,42 +1,19 @@
-/* Write your CSS here */
-.main-home-container {
+.content-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100vw;
-  height: 100vh;
-}
-
-.home-container-light {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: white;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.home-image {
-  width: 100px;
-  height: 100px;
-}
-
-.home-heading-light {
-  color: #000000;
-}
-
-.home-container-dark {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: black;
-  flex-grow: 1;
-  width: 100%;
+  min-height: 100vh;
 }
 
-.home-heading-dark {
-  color: white;
+.home-img {
+  width: 180px;
+}
+
+.dark-bg {
+  background-color: #000000;
+}
+
+.light-bg {
+  background-color: #ffffff;
 }

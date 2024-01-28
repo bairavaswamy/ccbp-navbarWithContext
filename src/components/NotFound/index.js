@@ -1,47 +1,34 @@
-// Write your code here
-import Navbar from '../Navbar'
+import './index.css'
 
 import ThemeContext from '../../context/ThemeContext'
 
-import './index.css'
+import Navbar from '../Navbar'
 
 const NotFound = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
+
+      const bgContent = isDarkTheme ? 'dark-bg' : 'light-bg'
+
+      const linkItemsFontColor = isDarkTheme
+        ? 'light-font-color'
+        : 'dark-font-color'
+
       return (
         <>
-          {!isDarkTheme ? (
-            <div className="not-found-home-container">
-              <Navbar />
-              <div className="not-found-container-light">
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/not-found-img.png"
-                  className="not-found-image"
-                  alt="not found"
-                />
-                <h1 className="not-found-heading-light">Lost Your Way?</h1>
-                <p className="not-found-para-light">
-                  We cannot seem to find the page
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="not-found-home-container">
-              <Navbar />
-              <div className="not-found-container-dark">
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/not-found-img.png"
-                  className="not-found-image"
-                  alt="not found"
-                />
-                <h1 className="not-found-heading-dark">Lost Your Way?</h1>
-                <p className="not-found-para-dark">
-                  We cannot seem to find the page
-                </p>
-              </div>
-            </div>
-          )}
+          <Navbar />
+          <div className={`content-container ${bgContent}`}>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/not-found-img.png"
+              alt="not found"
+              className="home-img"
+            />
+            <h1 className={`heading ${linkItemsFontColor}`}>Lost Your Way?</h1>
+            <p className={`heading ${linkItemsFontColor}`}>
+              We cannot seem to find the page you were looking for.
+            </p>
+          </div>
         </>
       )
     }}

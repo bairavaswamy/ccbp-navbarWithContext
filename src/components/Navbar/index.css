@@ -1,68 +1,60 @@
-/* Write your CSS here */
-.nav-bar-container-light {
+.light-nav-bar {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 15px;
-  background-color: white;
-  border-bottom-style: solid;
-  border-bottom-color: #dcdcdc;
-  border-bottom-width: 2px;
-  height: 60px;
+  padding: 10px;
+  border-bottom: 2px solid #dcdcdc;
 }
 
-.website-logo {
-  width: 40px;
-  height: 40px;
-}
-
-.middle-items {
+.dark-nav-bar {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  list-style-type: none;
-  padding: 0px;
+  padding: 10px;
+  background-color: #333333;
 }
 
-.list-item {
-  font-size: 16px;
-  margin-right: 10px;
-  font-weight: bold;
+/* -------------------- */
+
+.logo-img {
+  height: 60px;
+  width: 60px;
+}
+/* ----------------------- */
+
+.link-elements-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 110px;
+  justify-content: space-between;
 }
 
-.link-light {
-  color: #171f46;
+.link-text {
   text-decoration: none;
 }
 
-.theme-button {
-  width: 40px;
-  height: 40px;
+.link-items {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.dark-font-color {
+  color: #1e293b;
+}
+
+.light-font-color {
+  color: #ffffff;
+}
+
+.theme-btn {
   background-color: transparent;
-  border-style: none;
-  outline: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .theme-img {
-  width: 40px;
-  height: 40px;
-}
-
-.nav-bar-container-dark {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 15px;
-  background-color: #333333;
-  height: 60px;
-}
-
-.link-dark {
-  color: white;
-  text-decoration: none;
+  width: 50px;
 }

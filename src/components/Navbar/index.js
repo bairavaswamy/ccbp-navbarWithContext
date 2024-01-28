@@ -1,82 +1,56 @@
-// Write your code here
+import './index.css'
+
 import {Link} from 'react-router-dom'
 
 import ThemeContext from '../../context/ThemeContext'
-
-import './index.css'
 
 const Navbar = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isDarkTheme, toggleTheme} = value
+
+      const onClickThemeChanger = () => {
+        toggleTheme()
+      }
+
+      const navBarClassName = isDarkTheme ? 'dark-nav-bar' : 'light-nav-bar'
+
+      const websiteLogoUrl = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/website-logo-dark-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/website-logo-light-theme-img.png'
+
+      const linkItemsFontColor = isDarkTheme
+        ? 'light-font-color'
+        : 'dark-font-color'
+
+      const ThemeImg = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/light-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/dark-theme-img.png'
+
       return (
-        <>
-          {!isDarkTheme ? (
-            <div className="nav-bar-container-light">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/website-logo-light-theme-img.png"
-                className="website-logo"
-                alt="website logo"
-              />
-              <ul className="middle-items">
-                <li className="list-item">
-                  <Link to="/" className="link-light">
-                    Home
-                  </Link>
-                </li>
-                <li className="list-item">
-                  <Link to="/about" className="link-light">
-                    About
-                  </Link>
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="theme-button"
-                data-testid="theme"
-                onClick={toggleTheme}
-              >
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/dark-theme-img.png"
-                  className="theme-img"
-                  alt="theme"
-                />
-              </button>
-            </div>
-          ) : (
-            <div className="nav-bar-container-dark">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/website-logo-dark-theme-img.png"
-                className="website-logo"
-                alt="website logo"
-              />
-              <ul className="middle-items">
-                <li className="list-item">
-                  <Link to="/" className="link-dark">
-                    Home
-                  </Link>
-                </li>
-                <li className="list-item">
-                  <Link to="/about" className="link-dark">
-                    About
-                  </Link>
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="theme-button"
-                data-testid="theme"
-                onClick={toggleTheme}
-              >
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/light-theme-img.png"
-                  className="theme-img"
-                  alt="theme"
-                />
-              </button>
-            </div>
-          )}
-        </>
+        <nav className={navBarClassName}>
+          <img src={websiteLogoUrl} alt="website logo" className="logo-img" />
+          <ul className="link-elements-container">
+            <li className={`link-items ${linkItemsFontColor}`}>
+              <Link to="/" className="link-text">
+                Home
+              </Link>
+            </li>
+            <li className={`link-items ${linkItemsFontColor}`}>
+              <Link to="/about" className="link-text">
+                About
+              </Link>
+            </li>
+          </ul>
+          <button
+            data-testId="theme"
+            type="button"
+            className="theme-btn"
+            onClick={onClickThemeChanger}
+          >
+            <img src={ThemeImg} alt="theme" className="theme-img" />
+          </button>
+        </nav>
       )
     }}
   </ThemeContext.Consumer>
